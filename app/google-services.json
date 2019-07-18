@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "634883559418",
+    "firebase_url": "https://pakraden-566f5.firebaseio.com",
+    "project_id": "pakraden-566f5",
+    "storage_bucket": "pakraden-566f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634883559418:android:7ee037e3bbdb03b7",
+        "android_client_info": {
+          "package_name": "com.example.pakraden"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634883559418-6gkkgpu5fldnr8asd542jfququlgp44t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pakraden",
+            "certificate_hash": "505e4be737db30266233454c30c0eda8dbbadfdc"
+          }
+        },
+        {
+          "client_id": "634883559418-smabru3e7lehcksoeje7juutmvd3epe6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBho4lv3K-anLwDzrboUmni9j9PuL8d5K4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634883559418-smabru3e7lehcksoeje7juutmvd3epe6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
