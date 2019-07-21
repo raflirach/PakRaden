@@ -27,6 +27,7 @@ import com.example.pakraden.Database.Database;
 import com.example.pakraden.Interface.ItemClickListener;
 import com.example.pakraden.Model.Category;
 import com.example.pakraden.Model.Order;
+import com.example.pakraden.Service.ListenOrder;
 import com.example.pakraden.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -102,7 +103,9 @@ public class Home extends AppCompatActivity
 
         loadMenu();
 
-
+        //register service
+        Intent service = new Intent(Home.this, ListenOrder.class);
+        startService(service);
     }
 
     @Override
