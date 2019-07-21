@@ -101,6 +101,7 @@ public class Cart extends AppCompatActivity {
                 //delete cart
                 new Database(getBaseContext()).cleanCart();
                 Toast.makeText(Cart.this, "Terimakasi Telah Memesan", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {

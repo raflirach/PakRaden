@@ -1,6 +1,7 @@
 package com.example.pakraden;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,17 +16,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.andremion.counterfab.CounterFab;
 import com.example.pakraden.Common.Common;
+import com.example.pakraden.Database.Database;
 import com.example.pakraden.Interface.ItemClickListener;
 import com.example.pakraden.Model.Category;
+import com.example.pakraden.Model.Order;
 import com.example.pakraden.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,6 +43,8 @@ public class Home extends AppCompatActivity
     DatabaseReference category;
 
     TextView txtFullName;
+    CounterFab fab;
+    List<Order> cart = new ArrayList<>();
 
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
@@ -54,8 +65,9 @@ public class Home extends AppCompatActivity
         category = database.getReference("Category");
 
 
+           cart = new Database(getBaseContext()).getCarts();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (CounterFab) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +75,10 @@ public class Home extends AppCompatActivity
                 startActivity(cartIntent);
             }
         });
+
+        fab.setCount(cart.size());
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -88,6 +104,14 @@ public class Home extends AppCompatActivity
 
 
     }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        cart = new Database(getBaseContext()).getCarts();
+        fab.setCount(cart.size());
+    }
+
 
     private void loadMenu() {
 
